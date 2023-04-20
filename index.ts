@@ -19,7 +19,7 @@ io.on("connection", (socket) => {
     console.log(`user connected: ${socket.id}`)
 
     socket.on("send_message", (data) =>{
-        console.log(data)
+        // console.log(data)
         socket.broadcast.emit("recieve_message", data)
     });
 });

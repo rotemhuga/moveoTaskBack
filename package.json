@@ -8,7 +8,7 @@
     "typescript": "^5.0.4"
   },
     "scripts": {
-      "start": "nodemomn index.ts"
+      "start": "node src/nodemomn index.ts"
     },
   "dependencies": {
     "cors": "^2.8.5",
