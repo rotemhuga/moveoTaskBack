@@ -38,7 +38,7 @@ app.use(cors());
 app.use(routes);
 
 app.get("/", function (req, res) {
-   res.send("Hello World");
+   res.send("server conected");
 });
 
 connectToDB();
