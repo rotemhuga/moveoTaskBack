@@ -13,7 +13,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "https://moveotasksback.onrender.com",
     methods: ["GET", "POST"],
   },
 });
@@ -25,9 +25,14 @@ io.on("connection", (socket) => {
 
   socket.emit("code", code);
 
+// socket.on("join_room", (data) => {
+//    socket.join(data);
+//  });
+
   socket.on("code", (data) => {
     code = data;
     socket.broadcast.emit("code", data);
+    // socket.to(data.room).emit("code", data);
   });
 });
 
