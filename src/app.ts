@@ -27,22 +27,20 @@ const io = new Server(server, {
 
 io.on("connection", async (socket) => {
   console.log(`user connected: ${socket.id}`);
-  const roomId: string = socket.handshake.query.roomId as string;
-  console.log(roomId)
-  await socket.join(roomId);
-  console.log(io.sockets.adapter.rooms)
+  const roomCodeId: string = socket.handshake.query.roomCodeId as string;
+  await socket.join(roomCodeId);
 
   socket.emit("roomSize", {
-    roomSize: io.sockets.adapter.rooms.get(roomId)?.size,
+    roomSize: io.sockets.adapter.rooms.get(roomCodeId)?.size,
   });
 
   socket.on("code", ({ code }) => {
-    socket.to(roomId).emit("code", { code, senderId:socket.id });
+    socket.to(roomCodeId).emit("code", { code, senderId:socket.id });
   });
 
   socket.on("disconnect", () => {
     console.log(`user disconnect: ${socket.id}`)
-    socket.leave(roomId);
+    socket.leave(roomCodeId);
   })
 });
 
