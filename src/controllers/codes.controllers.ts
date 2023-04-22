@@ -1,5 +1,5 @@
 import {getCodes} from "../services/codes.service"
-import express, {Request, Response} from "express";
+import {Request, Response} from "express";
 
 export const getAllCodes= async (req: Request, res: Response) => {
     try {

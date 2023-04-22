@@ -6,7 +6,7 @@ export const getCodes = async () => {
         const codes = await codeModel.find();
         return codes
     } catch (err) {
-        throw new Error("Error while retrieving codes: ");
+        throw new Error("Error while retrieving the codes");
         }
 };
   
