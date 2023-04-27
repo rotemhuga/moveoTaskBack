@@ -33,6 +33,8 @@ io.on("connection", async (socket) => {
   socket.emit("roomSize", {
     roomSize: io.sockets.adapter.rooms.get(roomCodeId)?.size,
   });
+  console.log("roomSize:", io.sockets.adapter.rooms.get(roomCodeId)?.size);
+
 
   socket.on("code", ({ code }) => {
     socket.to(roomCodeId).emit("code", { code, senderId:socket.id });
